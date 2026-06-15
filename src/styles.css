@@ -1,0 +1,27 @@
+body { 
+    font-family: sans-serif; display: flex; gap: 20px; padding: 20px; 
+}
+#sidebar { 
+    width: 250px; border-right: 1px solid #ccc; padding-right: 20px; 
+}
+#todo-section {
+    flex-grow: 1; 
+}
+.todo-item {
+    padding: 10px; margin: 5px 0; border: 1px solid #ddd; display: flex; justify-content: space-between; align-items: center; 
+}
+.priority-High {
+    border-left: 5px solid red; background-color: #ffe6e6; 
+}
+.priority-Medium {
+    border-left: 5px solid orange; background-color: #fff2e6; 
+}
+.priority-Low {
+    border-left: 5px solid green; background-color: #e6f2e6; 
+}
+.hidden { 
+    display: none; 
+}
+.modal {
+    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 1px solid #000; background: white; padding: 20px; z-index: 10; 
+}

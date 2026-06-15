@@ -7,7 +7,32 @@
 </head>
 <body>
     <div id="root">
-        
+        <div id="sidebar">
+            <h2>Projects</h2>
+            <div id="project-list"></div>
+            <input type="text" id="new-project-name" placeholder="New project...">
+            <button id="add-project-btn">Add Project</button>
+        </div>
+
+        <div id="todo-section">
+            <h2 id="current-project-title">Select a Project</h2>
+            <button id="show-add-todo-btn" class="hidden">➕ Add New Todo</button>
+            <div id="todo-list"></div>
+        </div>
+
+        <div id="todo-modal" class="modal hidden">
+            <h3>Todo Details / Edit</h3>
+            <input type="text" id="modal-title"><br><br>
+            <textarea id="modal-desc"></textarea><br><br>
+            <input type="date" id="modal-date"><br><br>
+            <select id="modal-priority">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+            </select><br><br>
+            <button id="modal-save-btn">Save Changes</button>
+            <button id="modal-close-btn">Close</button>
+        </div>
     </div>
 </body>
 </html>
