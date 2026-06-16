@@ -1,10 +1,24 @@
 import { Project } from './Project.js';
 
 export class TodoManager {
-  constructor() {
+  constructor(storageService) {
+    this.storageService = storageService;
     this.projects = [];
+    this._loadFromStorage();
     this.ensureDefaultProject();
   }
+
+  _loadFromStorage() {
+    const saved = this.storageService?.load();
+    if (saved && saved.length > 0) {
+      this.projects = saved;
+    }
+  }
+
+  _persist() {
+    this.storageService?.save(this.projects);
+  }
+
 
   ensureDefaultProject() {
     if (this.projects.length === 0) {
@@ -18,12 +32,14 @@ export class TodoManager {
     }
     const newProject = new Project(name);
     this.projects.push(newProject);
+    this._persist();
     return newProject;
   }
 
   deleteProject(projectId) {
     this.projects = this.projects.filter(p => p.id !== projectId);
     this.ensureDefaultProject();
+    this._persist();
   }
 
   getProjects() {

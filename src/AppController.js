@@ -54,6 +54,9 @@ export class AppController {
 
   selectProject(projectId) {
     this.currentProject = this.manager.getProjectById(projectId);
+
+    this.currentProject._persist = () => this.manager._persist();
+
     document.getElementById('current-project-title').textContent =
       this.currentProject.name;
     document.getElementById('show-add-todo-btn').classList.remove('hidden');
@@ -72,6 +75,7 @@ export class AppController {
   toggleTodo(todoId) {
     const todo = this.currentProject.getTodos().find(t => t.id === todoId);
     todo?.toggleComplete();
+    this.manager._persist();
     this.todoUI.render(this.currentProject.getTodos());
   }
 
@@ -89,6 +93,7 @@ export class AppController {
     if (id) {
       const todo = this.currentProject.getTodos().find(t => t.id === id);
       todo?.updateDetails({ title, description, dueDate, priority });
+      this.manager._persist();
     } else {
       this.currentProject.addTodo(new Todo({ title, description, dueDate, priority }));
     }
