@@ -152,19 +152,3 @@ Priority levels are indicated by a left border accent on each todo card:
 | Low | Green (`#639922`) |
 
 The layout uses CSS Grid (`260px sidebar + 1fr main`) contained in a single card, so there is no full-page overflow or left-shift.
-
----
-
-## Roadmap
-
-- [ ] Checklist items inside todos
-- [ ] Drag-and-drop todo reordering
-- [ ] Filter todos by priority or due date
-- [ ] Dark mode toggle
-- [ ] Export todos as CSV or PDF
-
----
-
-## License
-
-MIT
